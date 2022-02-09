@@ -63,6 +63,7 @@ class CLT:
         ax2 = fig.add_subplot(2, 2, 2)  # add an Axes called ax2
         ax3 = fig.add_subplot(2, 2, 3)  # add an Axes called ax3
         ax4 = fig.add_subplot(2, 2, 4)
+
         original_samples_size = self.number_of_samples
 
         self.number_of_samples = self.number_of_samples * 2
