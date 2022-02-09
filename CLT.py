@@ -3,12 +3,12 @@ import math as mt
 import random
 import numpy as np
 import statistics as st
+import seaborn as sns
 
 
 class CLT:
 
     def __init__(self):
-
         self.number_of_tosses = 0
         self.size_of_sample = 0
         self.number_of_samples = 0
@@ -48,10 +48,45 @@ class CLT:
 
     def displaySamples(self):
         set_of_point = np.asarray(self.samples)
-        fig = plt.figure(figsize=(8, 4))
         num_bins = round(1 + mt.log2(self.number_of_samples))
-        plt.hist(set_of_point, num_bins, density=True, facecolor='red', alpha=0.2)
+        fig = plt.figure(figsize=(12, 4))
+        ax2 = fig.add_subplot(1, 2, 1)
+        ax2 = sns.histplot(set_of_point, bins=num_bins, kde=True)
+        ax2.lines[0].set_color('crimson')
         plt.show()
+
+    def showInAction(self):
+        num_bins = round(1 + mt.log2(self.number_of_samples))
+
+        fig = plt.figure(figsize=(12, 8))
+        ax1 = fig.add_subplot(2, 2, 1)  # add an Axes called ax1
+        ax2 = fig.add_subplot(2, 2, 2)  # add an Axes called ax2
+        ax3 = fig.add_subplot(2, 2, 3)  # add an Axes called ax3
+        ax4 = fig.add_subplot(2, 2, 4)
+        original_samples_size = self.number_of_samples
+
+        self.number_of_samples = self.number_of_samples * 2
+        set_of_point = np.asarray([st.mean(random.sample(self.tosses, self.size_of_sample))
+                                   for i in range(self.number_of_samples)])
+        sns.histplot(set_of_point, bins=num_bins, ax=ax1, kde=True)
+
+        self.number_of_samples = self.number_of_samples * 2
+        set_of_point = np.asarray([st.mean(random.sample(self.tosses, self.size_of_sample))
+                                   for i in range(self.number_of_samples)])
+        sns.histplot(set_of_point,label='test_label1', bins=num_bins, ax=ax2, kde=True)
+
+        self.number_of_samples = self.number_of_samples * 2
+        set_of_point = np.asarray([st.mean(random.sample(self.tosses, self.size_of_sample))
+                                   for i in range(self.number_of_samples)])
+        sns.histplot(set_of_point,label='test_label2', bins=num_bins, ax=ax3, kde=True)
+
+        self.number_of_samples = self.number_of_samples * 2
+        set_of_point = np.asarray([st.mean(random.sample(self.tosses, self.size_of_sample))
+                                   for i in range(self.number_of_samples)])
+        sns.histplot(set_of_point, bins=num_bins, ax=ax4, kde=True)
+
+        plt.show()
+        self.number_of_samples = original_samples_size
 
 
 def get_input(input_message, warning_message):

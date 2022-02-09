@@ -1,8 +1,10 @@
 from CLT import CLT
 
 if __name__ == '__main__':
-    model = CLT()
-    model.displaySamples()
+        model = CLT()
+        model.displaySamples()
+        model.showInAction()
+
 
 
 
