@@ -1,8 +1,9 @@
-from Src.CLT import CLT
+from CLT import CLT
 
 if __name__ == '__main__':
     model = CLT()
-    print(model.samples)
+    model.displaySamples()
+
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

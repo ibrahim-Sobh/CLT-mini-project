@@ -8,6 +8,7 @@ import statistics as st
 class CLT:
 
     def __init__(self):
+
         self.number_of_tosses = 0
         self.size_of_sample = 0
         self.number_of_samples = 0
@@ -17,8 +18,8 @@ class CLT:
         self.set_number_of_tosses()
         self.set_size_of_sample()
         self.set_number_of_samples()
-        self.simulate_tosses()
-        self.simulate_samples()
+        self.__simulate_tosses()
+        self.__simulate_samples()
 
     def set_number_of_tosses(self):
         input_message = "Enter the number of tosses you would like to be performed: "
@@ -38,10 +39,10 @@ class CLT:
         warning_message = "that's not a valid number of samples. Try again \n"
         self.number_of_samples = get_input(input_message, warning_message)
 
-    def simulate_tosses(self):
+    def __simulate_tosses(self):
         self.tosses = [random.uniform(0, 1) for i in range(self.number_of_tosses)]
 
-    def simulate_samples(self):
+    def __simulate_samples(self):
         self.samples = [st.mean(random.sample(self.tosses, self.size_of_sample))
                         for i in range(self.number_of_samples)]
 
