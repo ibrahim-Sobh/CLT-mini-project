@@ -91,6 +91,7 @@ class CLT:
         ax1.set_xlabel("Mean", size=12)
         ax1.set_ylabel("Frequency", size=12)
         fig.tight_layout()
+        plt.show()
 
     def showInAction(self):
         set_of_point = np.asarray(self.samples)
@@ -112,3 +113,4 @@ class CLT:
         fig.tight_layout()
         self.number_of_samples = original_number_of_samples
         self.simulate_samples()
+        plt.show()
