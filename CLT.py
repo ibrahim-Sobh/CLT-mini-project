@@ -36,21 +36,21 @@ class CLT:
 
     def set_number_of_tosses(self):
         input_message = "Enter the number of tosses you would like to be performed: "
-        warnging_message = "that's not a valid number of tosses. Try again \n"
-        self.number_of_tosses = get_input(input_message, warnging_message)
+        warning_message = "that's not a valid number of tosses. Try again \n"
+        self.number_of_tosses = get_input(input_message, warning_message)
 
     def set_size_of_sample(self):
         input_message = "Enter the size of sample you would like to be taken: "
-        warnging_message = "that's not a valid size of samples. Try again \n"
-        self.size_of_sample = get_input(input_message, warnging_message)
+        warning_message = "that's not a valid size of samples. Try again \n"
+        self.size_of_sample = get_input(input_message, warning_message)
         while self.size_of_sample > self.number_of_tosses:
             print("Size of sample should be strictly lower than the number of tosses\n")
-            self.size_of_sample = get_input(input_message, warnging_message)
+            self.size_of_sample = get_input(input_message, warning_message)
 
     def set_number_of_samples(self):
         input_message = "Enter the number of samples you would like to be taken: "
-        warnging_message = "that's not a valid number of samples. Try again \n"
-        self.number_of_samples = get_input(input_message, warnging_message)
+        warning_message = "that's not a valid number of samples. Try again \n"
+        self.number_of_samples = get_input(input_message, warning_message)
 
     def simulate_Coin_tosses(self):
         self.tosses = [random.uniform(0, 1) for i in range(self.number_of_tosses)]
