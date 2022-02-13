@@ -27,3 +27,9 @@ if __name__ == '__main__':
     model.simulate_samples()
     model.displaySample()
     model.showInAction()
+
+# Conclusion:
+#------------
+# At the end we can see that the central Limit Theorem works with any kind of distribution, and it is a way for us to
+# normalize our data and transform it into something useful that we can use in our machine learning algorithms. the
+# more Samples we take the more similar our distribution comes to a normal distribution.
