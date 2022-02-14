@@ -53,10 +53,10 @@ class CLT:
         self.number_of_samples = get_input(input_message, warning_message)
 
     def simulate_Coin_tosses(self):
-        self.tosses = [random.uniform(0, 1) for i in range(self.number_of_tosses)]
+        self.tosses = [np.random.binomial(1, 0.5) for i in range(self.number_of_tosses)]
 
     def simulate_Dice_tosses(self):
-        self.tosses = [random.uniform(0, 6) for i in range(self.number_of_tosses)]
+        self.tosses = [random.randint(1, 6) for i in range(self.number_of_tosses)]
 
     def simulate_Poisson(self):
         self.tosses = np.random.poisson(6, self.number_of_tosses).tolist()
